@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture Diagrams Index</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        .diagram-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .diagram-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            border-left: 5px solid #3498db;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .diagram-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .diagram-card h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .diagram-card p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .diagram-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .card-1 { border-left-color: #2c3e50; }
+        .card-2 { border-left-color: #3498db; }
+        .card-3 { border-left-color: #27ae60; }
+        .card-1 .btn { background: #2c3e50; }
+        .card-1 .btn:hover { background: #34495e; }
+        .card-2 .btn { background: #3498db; }
+        .card-2 .btn:hover { background: #2980b9; }
+        .card-3 .btn { background: #27ae60; }
+        .card-3 .btn:hover { background: #229954; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏗️ System Architecture Diagrams</h1>
+        <p class="subtitle">Personalized Educational Recommender System - Visual Documentation</p>
+        
+        <div class="diagram-grid">
+            <a href="architecture_diagram.html" class="diagram-card card-1">
+                <div class="icon">📊</div>
+                <h2>High-Level Architecture</h2>
+                <p>Complete system architecture showing all layers: User Interface, Cognitive Core (Four Pillars), Data & Artifacts, and Processing Pipeline. Includes component relationships and data flow.</p>
+                <span class="btn">View Diagram →</span>
+            </a>
+            
+            <a href="cognitive_processing_pipeline.html" class="diagram-card card-2">
+                <div class="icon">🧠</div>
+                <h2>Cognitive Processing Pipeline</h2>
+                <p>Step-by-step flow through the cognitive cycle: Perception → Understand → Reason → Learn → Interact → Feedback. Shows how user queries are processed through the four cognitive pillars.</p>
+                <span class="btn">View Diagram →</span>
+            </a>
+            
+            <a href="data_pipeline_flowchart.html" class="diagram-card card-3">
+                <div class="icon">🔄</div>
+                <h2>Data Pipeline Flowchart</h2>
+                <p>End-to-end data processing workflow: from raw Coursera.csv through cleaning, enrichment, feature engineering, ML artifact generation, to runtime system deployment.</p>
+                <span class="btn">View Diagram →</span>
+            </a>
+        </div>
+        
+        <div style="margin-top: 40px; padding: 20px; background: #ecf0f1; border-radius: 8px;">
+            <h3 style="color: #2c3e50; margin-top: 0;">📝 Usage Instructions</h3>
+            <ol style="color: #555; line-height: 1.8;">
+                <li>Click on any diagram card above to view the interactive diagram</li>
+                <li>Diagrams are rendered using Mermaid.js and can be zoomed/panned</li>
+                <li>To save as image: Right-click on the diagram → "Save image as..." or use browser screenshot tools</li>
+                <li>All diagrams are also available in the documentation markdown files</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
+

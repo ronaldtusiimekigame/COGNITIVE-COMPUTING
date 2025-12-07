@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cognitive Processing Pipeline</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: white;
+            font-family: Arial, sans-serif;
+        }
+        .diagram-container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: white;
+        }
+        .mermaid {
+            background: white;
+            width: 100%;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .description {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h1>Cognitive Processing Pipeline</h1>
+        <div class="description">
+            <p><strong>Overview:</strong> The cognitive processing pipeline demonstrates how user queries flow through the four cognitive pillars (Understand, Reason, Learn, Interact) to generate personalized recommendations.</p>
+        </div>
+        <div class="mermaid">
+flowchart LR
+    A[1. Perception & Intake<br/>User query + profile] --> B[2. Understand<br/>Intent detection, NER, context enrichment]
+    B --> C[3. Reason<br/>Graph traversal, content ranking, learning path sequencing]
+    C --> D[4. Learn<br/>Update learner model & resource weights from telemetry]
+    D --> E[5. Interact<br/>Compose explanation, recommendations, next actions]
+    E --> F[6. Feedback Capture<br/>Quiz results, reactions, follow-up questions]
+    F --> D
+    
+    style A fill:#3498db,stroke:#2980b9,color:#fff
+    style B fill:#3498db,stroke:#2980b9,color:#fff
+    style C fill:#9b59b6,stroke:#8e44ad,color:#fff
+    style D fill:#27ae60,stroke:#229954,color:#fff
+    style E fill:#e67e22,stroke:#d35400,color:#fff
+    style F fill:#e74c3c,stroke:#c0392b,color:#fff
+        </div>
+        <div class="description" style="margin-top: 30px;">
+            <h3>Pillar Mapping:</h3>
+            <ul>
+                <li><strong>Understand (Blue):</strong> Step 2 uses transformer encoders, domain ontologies, and socio-linguistic cues (e.g., mention of Ugandan sectors).</li>
+                <li><strong>Reason (Purple):</strong> Step 3 mixes rule-based prerequisite checks with neural scoring to ensure coherence and coverage of exam objectives.</li>
+                <li><strong>Learn (Green):</strong> Step 4 ingests telemetry and recalibrates both user mastery and resource relevance (e.g., down-weight videos with poor completion rates among Ugandan learners).</li>
+                <li><strong>Interact (Orange):</strong> Step 5 tailors narrative explanations, integrates low-bandwidth fallbacks, and surfaces "Why this resource?" rationales.</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>
+

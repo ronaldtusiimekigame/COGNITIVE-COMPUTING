@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Pipeline Flowchart</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: white;
+            font-family: Arial, sans-serif;
+        }
+        .diagram-container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: white;
+        }
+        .mermaid {
+            background: white;
+            width: 100%;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .description {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h1>Data Pipeline Flowchart</h1>
+        <div class="description">
+            <p><strong>Overview:</strong> The data pipeline illustrates how raw course data is processed, enriched, and transformed into machine learning artifacts and knowledge structures for the recommendation system.</p>
+        </div>
+        <div class="mermaid">
+flowchart TD
+    START([Data Sources]) --> RAW[Coursera.csv<br/>Raw Course Data]
+    
+    RAW --> LOAD[Data Loading<br/>Pandas DataFrame]
+    LOAD --> CLEAN[Data Cleaning<br/>Remove duplicates, handle missing values]
+    
+    CLEAN --> ENRICH[Content Enrichment<br/>Feature Engineering]
+    
+    ENRICH --> Q_TAG[Quantum Tagging<br/>Detect quantum computing content]
+    ENRICH --> U_TAG[Uganda Context Tagging<br/>Identify local relevance]
+    ENRICH --> SKILL[Skills Extraction<br/>Parse and normalize skills lists]
+    ENRICH --> TOPIC[Topic Clustering<br/>Categorize courses by domain]
+    
+    Q_TAG --> PROCESSED[Processed Dataset<br/>clean_courses.parquet]
+    U_TAG --> PROCESSED
+    SKILL --> PROCESSED
+    TOPIC --> PROCESSED
+    
+    PROCESSED --> VECTORIZE[TF-IDF Vectorization<br/>Text to numerical representation]
+    VECTORIZE --> VECTORIZER[Vectorizer Model<br/>tfidf_vectorizer.joblib]
+    VECTORIZE --> MATRIX[TF-IDF Matrix<br/>tfidf_matrix.npz]
+    
+    PROCESSED --> KG_BUILD[Knowledge Graph Construction<br/>Course-Skill-Topic-University Relations]
+    KG_BUILD --> KG_HTML[Knowledge Graph Visualization<br/>knowledge_graph.html]
+    
+    PROCESSED --> ARTIFACTS[Artifacts Directory<br/>Ready for Runtime]
+    VECTORIZER --> ARTIFACTS
+    MATRIX --> ARTIFACTS
+    KG_HTML --> ARTIFACTS
+    
+    ARTIFACTS --> RUNTIME[Runtime System<br/>app.py loads artifacts]
+    RUNTIME --> REC[Recommendation Engine<br/>Real-time query processing]
+    
+    style START fill:#95a5a6,stroke:#7f8c8d,color:#fff
+    style RAW fill:#95a5a6,stroke:#7f8c8d,color:#fff
+    style LOAD fill:#3498db,stroke:#2980b9,color:#fff
+    style CLEAN fill:#3498db,stroke:#2980b9,color:#fff
+    style ENRICH fill:#9b59b6,stroke:#8e44ad,color:#fff
+    style Q_TAG fill:#9b59b6,stroke:#8e44ad,color:#fff
+    style U_TAG fill:#9b59b6,stroke:#8e44ad,color:#fff
+    style SKILL fill:#9b59b6,stroke:#8e44ad,color:#fff
+    style TOPIC fill:#9b59b6,stroke:#8e44ad,color:#fff
+    style PROCESSED fill:#27ae60,stroke:#229954,color:#fff
+    style VECTORIZE fill:#e67e22,stroke:#d35400,color:#fff
+    style VECTORIZER fill:#e67e22,stroke:#d35400,color:#fff
+    style MATRIX fill:#e67e22,stroke:#d35400,color:#fff
+    style KG_BUILD fill:#e67e22,stroke:#d35400,color:#fff
+    style KG_HTML fill:#e67e22,stroke:#d35400,color:#fff
+    style ARTIFACTS fill:#27ae60,stroke:#229954,color:#fff
+    style RUNTIME fill:#2c3e50,stroke:#34495e,color:#fff
+    style REC fill:#2c3e50,stroke:#34495e,color:#fff
+        </div>
+        <div class="description" style="margin-top: 30px;">
+            <h3>Pipeline Stages:</h3>
+            <ul>
+                <li><strong>Data Loading (Blue):</strong> Import raw CSV data into pandas DataFrame for processing.</li>
+                <li><strong>Data Cleaning (Blue):</strong> Remove duplicates, handle missing values, standardize formats.</li>
+                <li><strong>Content Enrichment (Purple):</strong> Feature engineering including quantum tagging, Uganda context detection, skills extraction, and topic clustering.</li>
+                <li><strong>Processed Dataset (Green):</strong> Clean, enriched dataset saved as parquet file for efficient access.</li>
+                <li><strong>ML Artifacts (Orange):</strong> TF-IDF vectorization creates vectorizer model and embedding matrix. Knowledge graph visualization generated.</li>
+                <li><strong>Runtime System (Dark Gray):</strong> Application loads pre-computed artifacts for real-time recommendation processing.</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>
+
